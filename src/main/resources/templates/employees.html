@@ -2,11 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Companies</title>
+    <title th:text="#{home.all.employees}"></title>
 </head>
 <body>
+<a href="?lang=hy">Armenian</a> | <a href="?lang=ru">Russian</a> | <a href="?lang=en">English</a>
+<br><br>
+<a href="/addEmployees" th:text="#{employees.add}"></a>
 
-<a href="/addEmployees">Add Employee</a>
 
 <table border="1">
 
@@ -20,7 +22,7 @@
         <th>position</th>
         <th>company</th>
         <th>image</th>
-        <th>delete</th>
+        <th th:text="#{company.delete}"></th>
 
     </tr>
 
@@ -33,7 +35,7 @@
         <td th:text="${empl.salary}"></td>
         <td th:text="${empl.position}"></td>
         <td th:text="${empl.company.name}"></td>
-        <td >
+        <td>
 
             <img th:if="${empl.picUrl!=null}" th:src="@{/getImage(picName=${empl.picUrl})}" width="50"
                  height="50"/>
@@ -43,11 +45,13 @@
         </td>
 
 
-        <td>       <a th:href="@{'/deleteEmployee/' + ${empl.id}}">delete</a>
+        <td><a th:href="@{'/deleteEmployee/' + ${empl.id}}" th:text="#{company.delete}">delete</a>
+
+
+        </td>
+
 
     </tr>
-
-
 
 
 </table>

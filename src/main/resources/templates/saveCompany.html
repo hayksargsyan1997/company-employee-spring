@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Company</title>
+    <title th:text="#{companies.add}"></title>
 </head>
 <body>
-Save Companies:
+
 <form action="/addCompanies" method="post">
     <input  th:if="${company!=null}" type="hidden" th:value="${company.id} " name="id">
-    <input type="text" name="name" th:value="${company == null}? '': ${company.name}"><br>
-    <input type="number" name="size" th:value="${company == null}? '': ${company.size}"><br>
-    <input type="text" name="address" th:value="${company == null}? '': ${company.address}"><br>
+    <input type="text" name="name" placeholder="name" th:value="${company == null}? '': ${company.name}"><br>
+    <input type="number" name="size"  placeholder="size" th:value="${company == null}? '': ${company.size}"><br>
+    <input type="text" name="address"  placeholder="address" th:value="${company == null}? '': ${company.address}"><br>
 
     <input type="submit" value="save">
 </form>

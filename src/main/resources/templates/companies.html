@@ -2,11 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Companies</title>
+    <title th:text="#{home.all.companies}"></title>
 </head>
 <body>
 
-<a href="/addCompanies">Add Company</a>
+
+<a href="?lang=hy">Armenian</a> | <a href="?lang=ru">Russian</a> | <a href="?lang=en">English</a>
+<br><br>
+<a href="/addCompanies" th:text="#{companies.add}"></a>
+
 
 <table border="1">
 
@@ -15,7 +19,8 @@
         <th>name</th>
         <th>size</th>
         <th>address</th>
-        <th>action</th>
+        <th th:text="#{company.delete}"></th>
+        <th th:text="#{company.edit}"></th>
 
     </tr>
 
@@ -24,12 +29,11 @@
         <td th:text="${comp.name}"></td>
         <td th:text="${comp.size}"></td>
         <td th:text="${comp.address}"></td>
-        <td><a th:href="@{'/deleteCompany/' + ${comp.id}}">delete</a> | <a th:href="@{'/editCompany/' + ${comp.id}}">edit</a>
+        <td><a th:href="@{'/deleteCompany/' + ${comp.id}}" th:text="#{company.delete}"></a></td>
+        <td><a th:href="@{'/editCompany/' + ${comp.id}}" th:text="#{company.edit}"></a></td>
 
 
     </tr>
-
-
 
 
 </table>

@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Save Employee</title>
+    <title  th:text="#{employees.add}"></title>
 </head>
 <body>
-Save Employee:
+
 <form action="/addEmployees" method="post" enctype="multipart/form-data" >
     <input type="text" name="name" placeholder="name"><br>
     <input type="text" name="surname" placeholder="surname"><br>
